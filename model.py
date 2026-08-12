@@ -87,8 +87,28 @@ def trainable_fraction(trainable_count, total_count):
     # Return the fraction of parameters that are trainable.
     return float(trainable_count) / float(total_count)
 
-# Step 9 - build_instruction_examples (not yet solved)
-# TODO: implement
+# Step 9 - build_instruction_examples
+def build_instruction_examples():
+    """Return a small list of {'instruction', 'response'} dicts for SFT."""
+
+    return [
+        {
+            "instruction": "What is Python?",
+            "response": "Python is a high-level programming language known for its simple and readable syntax."
+        },
+        {
+            "instruction": "Explain what a variable is.",
+            "response": "A variable is a name that refers to a value stored in a program."
+        },
+        {
+            "instruction": "What does a loop do?",
+            "response": "A loop repeatedly executes a block of code while a specified condition or sequence allows it."
+        },
+        {
+            "instruction": "Give me a simple tip for debugging code.",
+            "response": "Read the error message carefully and isolate the smallest piece of code that reproduces the problem."
+        },
+    ]
 
 # Step 10 - format_instruction_example (not yet solved)
 # TODO: implement
