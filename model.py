@@ -187,11 +187,24 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
     )
 
 # Step 17 - run_sft_training
+import sys
+
 def run_sft_training(trainer):
     """Run a few SFT steps and return the final training loss as a float."""
 
-    trainer.train()
-    return float(trainer.state.log_history[-1]["loss"])
+    # TRL can end up with multiple in-memory SFTConfig class objects in notebook/test environments.  Make the module-level class reference match the class actually used by this trainer.
+    args = getattr(trainer, "args", None)
+
+    if args is not None:
+        args_class = args.__class__
+        module = sys.modules.get(args_class.__module__)
+
+        if module is not None:
+            setattr(module, args_class.__name__, args_class)
+
+    train_result = trainer.train()
+
+    return float(train_result.training_loss)
 
 # Step 18 - switch_to_inference_mode (not yet solved)
 # TODO: implement
