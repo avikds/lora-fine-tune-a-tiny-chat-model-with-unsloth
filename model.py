@@ -192,7 +192,7 @@ import sys
 def run_sft_training(trainer):
     """Run a few SFT steps and return the final training loss as a float."""
 
-    # TRL can end up with multiple in-memory SFTConfig class objects in notebook/test environments.  Make the module-level class reference match the class actually used by this trainer.
+    # TRL can end up with multiple in-memory SFTConfig class objects in notebook/test environments. Make the module-level class reference match the class actually used by this trainer.
     args = getattr(trainer, "args", None)
 
     if args is not None:
