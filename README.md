@@ -30,7 +30,3 @@ python scaffold.py
 - [x] **18.** switch_to_inference_mode
 - [x] **19.** build_chat_prompt
 - [x] **20.** generate_reply
-
----
-
-Built on Deep-ML.
