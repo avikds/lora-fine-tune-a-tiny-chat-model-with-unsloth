@@ -30,3 +30,26 @@ python scaffold.py
 - [x] **18.** switch_to_inference_mode
 - [x] **19.** build_chat_prompt
 - [x] **20.** generate_reply
+
+## Results
+
+```
+[base] total_params=315,119,488 4bit=True
+
+[lora] target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj']
+[lora] trainable=1,081,344 fraction=0.003432
+
+[data] num_examples=4
+[data] dataset_columns=['text'] size=4
+[data] tokens[0]=25
+
+[train] step_losses=[3.287, 3.112, 2.777, 2.440, 2.584]
+[train] train_loss=2.8400
+[train] final_loss=2.8401
+[train] runtime=7.106s
+[train] steps=5
+
+[gen] reply="Hello! It's nice to meet you!"
+
+PASS
+```
